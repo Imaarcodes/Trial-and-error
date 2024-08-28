@@ -1,0 +1,38 @@
+import random
+
+
+def number_guesser():
+    # Randomly select a number between 1 and 100
+    number_to_guess = random.randint(1, 10)
+
+    while True:
+        # Prompt the user to guess the number
+        user_guess = input("Guess a number between 1 and 10: ")
+
+        # Check if the user's guess is a valid integer
+        try:
+            user_guess = int(user_guess)
+        except ValueError:
+            print("Invalid input. Please enter a whole number.")
+            continue
+
+        # Check if the user's guess is higher or lower than the number to guess
+        if user_guess < number_to_guess:
+            print("Higher!")
+        elif user_guess > number_to_guess:
+            print("Lower!")
+        else:
+            print("Correct!")
+            break
+
+    # Ask the user if they want to play again
+    play_again = input("Do you want to play again? (yes/no): ")
+
+    if play_again.lower() == "yes":
+        number_guesser()
+    else:
+        print("Bye bye!")
+
+
+# Start the program
+number_guesser()
